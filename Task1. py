@@ -1,0 +1,51 @@
+def calculateElectronicsGST(a, b):
+    amount = a + b
+    gst = amount * 0.18
+    return amount + gst
+
+
+def calculateFashionGST(c, d):
+    amount = c + d
+    gst = amount * 0.13
+    return amount + gst
+
+
+def calculateFoodGST(e):
+    gst = e * 0.07
+    return e + gst
+
+
+def totalBill(a, b, c, d, e):
+    electronics = calculateElectronicsGST(a, b)
+    fashion = calculateFashionGST(c, d)
+    food = calculateFoodGST(e)
+    return electronics + fashion + food
+
+
+def calculateDiscountedBill(a, b, c, d, e):
+    total = totalBill(a, b, c, d, e)
+    discount = total * 0.20
+    return total - discount
+
+
+if __name__ == "__main__":
+    a = 100
+    b = 100
+    c = 100
+    d = 100
+    e = 100
+
+    electronics = calculateElectronicsGST(a, b)
+    fashion = calculateFashionGST(c, d)
+    food = calculateFoodGST(e)
+
+    total = totalBill(a, b, c, d, e)
+    discount = total * 0.20
+    final_amount = calculateDiscountedBill(a, b, c, d, e)
+
+    print(f"Electronics after GST: {electronics:.2f}")
+    print(f"Fashion after GST: {fashion:.2f}")
+    print(f"Food after GST: {food:.2f}")
+    print(f"Total after GST: {total:.2f}")
+    print(f"Discount (20%): {discount:.2f}")
+    print(f"Final payable amount: {final_amount:.2f}")
